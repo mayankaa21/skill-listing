@@ -1,0 +1,11 @@
+
+                          <input style="width:92.5%; height:44px; padding-left:15px ;float:left" type ="text"  [(ngModel)]="searchText" placeholder="Search"><button type="button" style="font-size:22px; width:7%;float:left" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            <ul  class= "list-group" *ngIf="searchText">
+                            <li style="border:2px solid rgb(99, 93, 93); float:left; width:100%" class="list-group-item" *ngFor="let c of skillname | filter : searchText">
+                            <strong>{{c | uppercase}}</strong>
+                            </li>
+                            </ul>
+
+
+
+                     

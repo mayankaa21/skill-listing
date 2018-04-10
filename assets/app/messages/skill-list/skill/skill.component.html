@@ -1,0 +1,73 @@
+
+<div class="row" *ngIf="originalDis" >
+    <div class="col-md-3 col-xs-6" 
+    style="
+    padding-left: 35px;"
+    (mouseenter)="onHover()" 
+    (mouseleave)="out()" 
+
+    (click)="onclick()"><strong>{{ skill.name | uppercase }}</strong>
+      <span  *ngIf="hover" class="glyphicon glyphicon-edit"></span>
+    </div>
+
+      <div class="col-md-2 col-md-offset-5 col-xs-3"
+      >
+      <span class="glyphicon glyphicon-ok" 
+      [ngStyle] = "{color:skill.acceptoption ? 'green' : 'grey'}" 
+      (click)="onApprove()">Approve</span>
+        </div>
+  
+      <div class="col-md-2 col-xs-3" 
+      >
+      <span class="glyphicon glyphicon-remove" 
+      [ngStyle] = "{color:skill.rejectoption ? 'red' : 'grey'}" 
+      (click)="onReject()">Reject</span></div>
+    </div>
+
+
+<div class="row" *ngIf="formDis">
+        <div class="col-md-6 col-xs-8">
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <div class="form-inline">
+                        <input
+                                type="text"
+                                id="content"
+                                class="form-control"
+                                [ngModel]="skill?.name"
+                                name="content"
+                                required
+                                maxlength="15"
+                                style="
+                                padding-top: 0px;
+                                padding-left: 10px;
+                                padding-bottom: 0px;
+                                padding-right: 0px;
+                                margin-left: 5px">
+                        <button class="btn btn-success" type="submit" 
+                        style="
+                              position:relative;
+                              right:80px;
+                              padding-top: 0px;
+                              padding-bottom: 0px;
+                              ">Submit</button>
+                    </div>
+                </form>
+            </div>
+        
+    
+        <div class="col-md-2 col-md-offset-2 col-xs-2"
+        style="padding-top: 9px; cursor:pointer;">
+        <span class="glyphicon glyphicon-ok" 
+        [ngStyle] = "{color:skill.acceptoption ? 'green' : 'grey'}" 
+        (click)="onApprove()">Approve</span>
+          </div>
+    
+        <div class="col-md-2 col-xs-2" 
+        style="padding-top: 9px;cursor:pointer;">
+        <span class="glyphicon glyphicon-remove" 
+        [ngStyle] = "{color:skill.rejectoption ? 'red' : 'grey'}" 
+        (click)="onReject()">Reject</span>
+        </div>
+</div>
+  
+ 
